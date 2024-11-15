@@ -1,8 +1,24 @@
 @import '../../../../../../../styles/variables';
+@import '../../../../../../../styles/mixins.scss';
 
 .container{
     margin-left: 22%;
     
+    .card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+        background-color: $color-primary;
+        padding: 2rem;
+
+        .description{
+            font-weight: 700;
+            flex-direction: column;
+            display: flex;
+            gap: 1rem;
+        }
+    }
 
     .title{
         color: $color-text;

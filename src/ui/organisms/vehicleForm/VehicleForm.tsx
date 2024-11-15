@@ -39,10 +39,19 @@ const vehicleSchema = yup.object().shape({
         .required('El campo es obligatorio.')
 
 });
-const VehicleForm = ({closeModal}: IProps) => {
+const VehicleForm = ({ closeModal }: IProps) => {
     const router = useRouter();
-    const { control, handleSubmit, setError, formState: { errors } } = useForm<IVehicleRequest>({ mode: "onChange", reValidateMode: "onChange", resolver: yupResolver(vehicleSchema) });
-    
+    const {
+        control,
+        handleSubmit,
+        setError,
+        formState: { errors }
+    } = useForm<IVehicleRequest>(
+        {
+            mode: "onChange",
+            reValidateMode: "onChange", resolver: yupResolver(vehicleSchema)
+        });
+
     const handleRegister = async (data: IVehicleRequest) => {
         try {
             const formData = new FormData();
@@ -50,32 +59,32 @@ const VehicleForm = ({closeModal}: IProps) => {
             formData.append("model", data.model);
             formData.append("year", data.year.toString());
             formData.append("licensePlate", data.licensePlate);
-    
+
             if (data.file instanceof File) {
                 formData.append("file", data.file);
             } else {
                 throw new Error("La foto no es un archivo válido");
             }
-    
+
             const response = await fetch("/api/vehicle/post", {
                 method: "POST",
                 body: formData,
             });
-    
+
             if (!response.ok) {
                 throw new Error("Error al registrar el vehículo");
             }
-    
+
             console.log("Vehículo registrado exitosamente.");
             router.refresh();
             closeModal();
-    
+
             return await response.json();
         } catch (error) {
             console.error("Error al registrar vehículo:", error);
         }
     };
-    
+
     return (
         <form className={styles.vehicleForm} onSubmit={handleSubmit(handleRegister)}>
             <Title level={2} className={styles.title}>Agregar nuevo vehículo</Title>

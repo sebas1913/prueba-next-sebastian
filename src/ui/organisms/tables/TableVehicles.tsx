@@ -7,8 +7,7 @@ import styles from './tables.module.scss';
 import Table from "@/ui/molecules/table/Table";
 import Button from "@/ui/atoms/button/Button";
 import PaginationVehicle from "../pagination/VehiclesPagination";
-import VehicleForm from "../vehicleForm/VehicleForm";
-import Title from "@/ui/atoms/Title";
+
 
 interface TableVehiclesProps {
     dataResponse: IVehicleResponse;

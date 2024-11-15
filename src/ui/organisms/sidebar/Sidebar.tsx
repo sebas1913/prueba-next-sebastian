@@ -7,6 +7,7 @@ import styles from './sidebar.module.scss';
 import Button from "@/ui/atoms/button/Button";
 import Title from "@/ui/atoms/Title";
 import Paragraph from '@/ui/atoms/Paragraph';
+import Link from 'next/link';
 
 const Sidebar: React.FC = () => {
     const { data: session } = useSession();
@@ -30,7 +31,7 @@ const Sidebar: React.FC = () => {
             </div>
             <div className={styles.options}>
                 <div className={styles.itemCar}>
-                    <Button className="secondary-icons-big-secondary">{Icons.car} Vehículos</Button>
+                    <Link href={'/dashboard/vehicles'} className={styles.link}>{Icons.car} Vehículos</Link>
                 </div>
                 <div className={styles.item}>
                     <Button className="secondary-icons-big" onClick={handleSignOut}>{Icons.logOut} Cerrar sesión</Button>

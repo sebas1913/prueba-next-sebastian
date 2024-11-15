@@ -90,18 +90,18 @@ export class HttpClient {
         return this.handleResponse(response);
     }
 
-    async getFile(url: string): Promise<Blob> {
-        const headers = await this.getHeader();
-        const response = await fetch(`${this.baseUrl}/${url}`, {
-            headers: headers,
-            method: "GET",
-        });
+    // async getFile(url: string): Promise<Blob> {
+    //     const headers = await this.getHeader();
+    //     const response = await fetch(`${this.baseUrl}/${url}`, {
+    //         headers: headers,
+    //         method: "GET",
+    //     });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw errorData;
-        }
+    //     if (!response.ok) {
+    //         const errorData = await response.json();
+    //         throw errorData;
+    //     }
 
-        return await response.blob();
-    }
+    //     return await response.blob();
+    // }
 }

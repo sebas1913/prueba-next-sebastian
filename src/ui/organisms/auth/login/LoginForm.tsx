@@ -52,7 +52,7 @@ const LoginForm = () => {
                 return;
             }
 
-            router.push('/dashboard');
+            router.push('/dashboard/vehicles');
 
         } catch (error) {
             console.log(error);

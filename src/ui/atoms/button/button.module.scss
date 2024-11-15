@@ -46,16 +46,20 @@
         color: $color-primary;
     }
 
+    &.secondary-icons-big-secondary {
+        font-weight: 600;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        color: $color-secondary;
+    }
+
     &.secondary-icons-big {
         width: 100%;
         display: flex;
         align-items: center;
-        background-color: $color-primary;
-        color: $color-secondary;
+        font-weight: 600;
 
-        &:hover{
-            background-color: $color-gray-hover;
-        }
     }
 
     &.delete{

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import '../styles/globals.scss';
 import { AuthProvider } from "./auth-provider";
-import { Raleway } from "next/font/google";
+import { Inter } from "next/font/google";
 
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "Plataforma de Gestión y Mantenimiento de Flotas de Vehículos",
 };
 
-const raleway = Raleway({ subsets: ["latin"], weight: '400' });
+const raleway = Inter({ subsets: ["latin"]});
 
 
 export default function RootLayout({

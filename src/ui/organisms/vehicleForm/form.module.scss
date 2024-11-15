@@ -1,4 +1,8 @@
 .vehicleForm{
-    display: flex;
-    flex-direction: column;
+    padding: 1rem;
+    
+    .title{
+        margin: 0.7rem 0;
+        font-size: 1.6rem;
+    }
 }

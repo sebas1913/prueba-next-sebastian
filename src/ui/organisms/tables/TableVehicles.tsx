@@ -61,7 +61,7 @@ const TableVehicles: React.FC<TableVehiclesProps> = ({ dataResponse, onEdit }) =
         actions: (
             <div className={styles.actions}>
                 <Button className="secondary" onClick={() => onEdit(vehicle.id)}>{Icons.edit}</Button>
-                <Button className="secondary">{Icons.history}</Button>
+                <Button className="secondary" onClick={() => router.push(`/dashboard/vehicles/maintenance/${vehicle.id}`)}>{Icons.history}</Button>
                 <Button className="secondary" onClick={() => handleDelete(vehicle.id)}>{Icons.delete}</Button>
             </div>
         ),

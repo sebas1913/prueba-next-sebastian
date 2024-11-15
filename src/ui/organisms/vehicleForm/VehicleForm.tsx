@@ -67,6 +67,7 @@ const VehicleForm = ({closeModal}: IProps) => {
             }
     
             console.log("Vehículo registrado exitosamente.");
+            router.refresh();
             closeModal();
     
             return await response.json();
@@ -77,6 +78,7 @@ const VehicleForm = ({closeModal}: IProps) => {
     
     return (
         <form className={styles.vehicleForm} onSubmit={handleSubmit(handleRegister)}>
+            <Title level={2} className={styles.title}>Agregar nuevo vehículo</Title>
             <FormField<IVehicleRequest>
                 control={control}
                 type="text"
@@ -117,7 +119,7 @@ const VehicleForm = ({closeModal}: IProps) => {
                 label="Foto:"
                 error={errors.file}
             />
-            <Button type="submit" className={styles.button}>Registrarse</Button>
+            <Button type="submit" className='primary-big'>Registrarse</Button>
         </form>
     );
 };

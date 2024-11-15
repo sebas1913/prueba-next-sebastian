@@ -1,6 +1,7 @@
 import { HttpClient } from "@/app/infrastructure/utils/httpClient";
 import { IVehicleResponse } from "@/app/core/application/dto/vehicles/vehicle-response.dto";
 import { IVehicleRequest } from "@/app/core/application/dto/vehicles/vehicle-request";
+import { Datum } from "@/app/core/application/dto/vehicles/vehicle-response.dto";
 
 
 export class VehicleService{
@@ -30,16 +31,16 @@ export class VehicleService{
         }
     }; 
 
-    // async findById(id: number): Promise<Datum> {
-    //     try {
-    //         const response = await this.httpClient.get<Datum>(`vehicles/${id}`);
-    //         return response;
+    async findById(id: number): Promise<IVehicleResponse> {
+        try {
+            const response = await this.httpClient.get<IVehicleResponse>(`vehicles/${id}`);
+            return response;
             
-    //     } catch (error) {
-    //         console.log(error);
-    //         throw error;
-    //     }
-    // }
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
 
     // async put(id: number, body: IProjectRequest) {
 	// 	try {

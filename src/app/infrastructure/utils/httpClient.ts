@@ -70,25 +70,26 @@ export class HttpClient {
         return this.handleResponse(response);
     }
 
-    async postFormData<T>(url: string, formData: FormData): Promise<T> {
+    async postFormData<T>(url: string, body: FormData): Promise<T> {
         const headers = await this.getHeader();
+        console.log(body)
         const response = await fetch(`${this.baseUrl}/${url}`, {
-            headers: headers,
+            headers: {
+               ...headers, 
+            },
             method: "POST",
-            body: formData,
+            body,
         });
-        return this.handleResponse(response);
+    
+        if (!response.ok) {
+            const errorDetails = await response.text(); 
+            console.error("Error details:", errorDetails);
+            throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+    
+        return response.json();
     }
 
-    async putFormData<T>(url: string, formData: FormData): Promise<T> {
-        const headers = await this.getHeader();
-        const response = await fetch(`${this.baseUrl}/${url}`, {
-            headers: headers,
-            method: "PUT",
-            body: formData,
-        });
-        return this.handleResponse(response);
-    }
 
     // async getFile(url: string): Promise<Blob> {
     //     const headers = await this.getHeader();
